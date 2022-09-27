@@ -1,25 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap");
 
 :root {
-  /* ***Colors*** */
-  /* Primary */
-  --backgroundColor: hsl(26, 40%, 92%);
-  --darkCyanColor: hsl(158, 36%, 37%);
-  --creamColor: hsl(158, 36%, 37%);
-  --activeColor: hsl(156, 42%, 18%);
-  /* Neutral */
-  --veryDarkBlueColor: hsl(212, 21%, 14%);
-  --darkGrayishBlueColor: hsl(228, 12%, 48%);
-  --whiteColor: hsl(0, 0%, 100%);
+  --darkCyan: hsl(158, 36%, 37%);
+  --darkCyanActive: hsl(158, 44%, 26%);
+  --cream: hsl(30, 38%, 92%);
 
-  /* ***Font*** */
+  --veryDarkBlue: hsl(212, 21%, 14%);
+  --darkGrayishBlue: hsl(228, 12%, 48%);
+  --white: hsl(0, 0%, 100%);
+
+  --fontSize: 14px;
   --primaryFontFamily: "Montserrat", sans-serif;
   --secondaryFontFamily: "Fraunces", sans-serif;
-  --fontSize: 14px;
-
-  /* ***BreakPoint Layout*** */
-  --mobile: 375px;
-  --desktop: 1440px;
 }
 * {
   box-sizing: border-box;
@@ -28,11 +20,11 @@
   text-decoration: none;
 }
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--primaryFontFamily);
   font-size: var(--fontSize);
-  background-color: var(--backgroundColor);
-  color: var(--darkGrayishBlueColor);
-  overflow-x: hidden;
+  font-weight: 500;
+  color: var(--darkGrayishBlue);
+  background-color: var(--cream);
 }
 main,
 footer,
@@ -47,7 +39,6 @@ footer,
 .product-infos {
   justify-content: center;
   align-items: center;
-  width: 100vw;
 }
 main {
   height: 100vh;
@@ -72,14 +63,15 @@ main {
 .product-infos {
   flex-direction: column;
   justify-content: space-around;
-  background-color: var(--whiteColor);
-  border-radius: 0 10px 10px 0;
+  background-color: var(--white);
   padding: 2.3rem;
+  border-radius: 0 10px 10px 0;
 }
 .product-category {
   font-size: calc(var(--fontSize) / 1.5);
   text-transform: uppercase;
   letter-spacing: 0.2rem;
+  width: 100%;
 }
 .product-title,
 .price {
@@ -88,26 +80,31 @@ main {
   font-weight: 700;
 }
 .product-title {
-  color: var(--veryDarkBlueColor);
+  color: var(--veryDarkBlue);
+}
+.product-description {
+  line-height: 1.3rem;
+}
+.product-price {
+  align-self: flex-start;
 }
 .price {
-  color: var(--creamColor);
+  color: var(--darkCyan);
 }
 .price.old {
+  color: var(--darkGrayishBlue);
   font-family: var(--primaryFontFamily);
-  color: var(--darkGrayishBlueColor);
   font-size: var(--fontSize);
-  font-weight: 400;
+  font-weight: 500;
   align-self: center;
   margin-left: 10px;
 }
 button {
   width: 100%;
   border: none;
-  color: var(--whiteColor);
-  font-weight: 700;
+  color: var(--white);
   padding: 1rem 0;
-  background-color: var(--creamColor);
+  background-color: var(--darkCyan);
   border-radius: 0.5rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -116,7 +113,7 @@ button i {
   margin-right: 10px;
 }
 button:hover {
-  background-color: var(--activeColor);
+  background-color: var(--darkCyanActive);
 }
 
 @media screen and (max-width: 375px) {
@@ -130,9 +127,9 @@ button:hover {
     width: 100%;
   }
   .product-photo {
+    border-radius: 10px 10px 0 0;
     background-image: url("/images/image-product-mobile.jpg");
     height: 315px;
-    border-radius: 10px 10px 0 0;
   }
   .product-infos {
     padding: 1.4rem;
@@ -141,22 +138,20 @@ button:hover {
   .product-title {
     line-height: 1.9rem;
   }
-  .product-description {
-    line-height: 1.3rem;
-  }
   footer {
     padding: 0 2rem;
     text-align: center;
   }
 }
+
 /* ***Footer*** */
 footer {
   height: 10vh;
-  font-size: var(--fontSizeInit);
 }
 footer a {
-  color: var(--creamColor);
+  color: var(--darkCyan);
+  transition: color 0.3s ease;
 }
 footer a:hover {
-  color: var(--activeColor);
+  color: var(--darkCyanActive);
 }
